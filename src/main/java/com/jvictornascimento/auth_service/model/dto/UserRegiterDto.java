@@ -7,11 +7,10 @@ public record UserRegiterDto(
         @NotNull
         String name,
         @NotNull
-        String password,
-        @NotNull
         @Email
-        String email
-
+        String email,
+        @NotNull
+        String password
 
 ) {
 }
