@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  db-auth-service:
+    image: 'postgres:latest'
+    container_name: 'db-auth-service'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: auth-service
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+volumes:
+  db_data:
