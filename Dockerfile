@@ -5,7 +5,7 @@ COPY pom.xml /app
 
 WORKDIR /app
 
-RUN mvn package
+RUN mvn clean install -Pbuild -DskipTests
 
 FROM openjdk:17-jdk-slim
 COPY --from=build /app/target/auth-service-0.0.1-SNAPSHOT.jar /app/app.jar
